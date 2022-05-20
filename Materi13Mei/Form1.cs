@@ -32,8 +32,23 @@ namespace Materi13Mei
 
         private void bt_Insert_Click(object sender, EventArgs e)
         {
-            sqlQuery = "INSERT INTO pelajar VALUES('IDPelajar', 'NamaPelajar', 'Jurusan', 'TanggalLahir', 'NoInduk', 'NoTelepon', 'JenisKelamin', 'Alamat', 'Angkatan', 'Email', 0)";
-            MessageBox.Show(sqlQuery);
+            string cekJenisKelamin = "";
+            if (rb_LakiLaki.Checked == true)
+            {
+                cekJenisKelamin = "Laki - Laki";
+            }
+            else if (rb_Perempuan.Checked == true)  
+            {
+                cekJenisKelamin = "Perempuan";
+            }
+            sqlQuery = "INSERT INTO pelajar VALUES('"+tb_IDPelajar.Text+"', '"+tb_NamaPelajar.Text+"', '"+cb_Jurusan.Text+"', '"+dtp_TanggalLahir.Value.ToString("yyyyMMdd")+"', '"+tb_NoInduk.Text+"', '"+tb_NoTelepon.Text+"', '"+cekJenisKelamin+"', '"+tb_Alamat.Text+"', '"+cb_Angkatan.Text+"', '"+tb_EMail.Text+"', 0)";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+            MessageBox.Show("Data pelajar baru bernama " + tb_NamaPelajar.Text + " berhasil diinput.");
+
+            
         }
     }
 }

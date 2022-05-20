@@ -159,6 +159,10 @@
             // cb_Jurusan
             // 
             this.cb_Jurusan.FormattingEnabled = true;
+            this.cb_Jurusan.Items.AddRange(new object[] {
+            "ISB",
+            "BIS",
+            "MIS"});
             this.cb_Jurusan.Location = new System.Drawing.Point(127, 74);
             this.cb_Jurusan.Name = "cb_Jurusan";
             this.cb_Jurusan.Size = new System.Drawing.Size(121, 21);
@@ -217,6 +221,9 @@
             // cb_Angkatan
             // 
             this.cb_Angkatan.FormattingEnabled = true;
+            this.cb_Angkatan.Items.AddRange(new object[] {
+            "2013",
+            "2014"});
             this.cb_Angkatan.Location = new System.Drawing.Point(127, 231);
             this.cb_Angkatan.Name = "cb_Angkatan";
             this.cb_Angkatan.Size = new System.Drawing.Size(121, 21);
